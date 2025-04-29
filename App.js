@@ -17,11 +17,18 @@ function CounterScreen(){
     const increase = () => setCount(prev => prev + 1);
     const decrease = () => setCount(prev => (prev > 0 ? prev - 1 : 0));
     return (
-      <View style={styles.container}>
-        <Text style={styles.counterText}>Counter: {counter}</Text>
-        <Button title="Counter Plus" onPress={increase}/>
-        <Button title="Counter Minus" onPress={decrease}/>
-      </View>
+        <View style={styles.container}>
+            <Text style={styles.counterText}>Counter: {counter}</Text>
+
+            <View style={styles.buttonContainer}>
+                <View style={styles.buttonWrapper}>
+                    <Button title="Counter Plus" onPress={increase} />
+                </View>
+                <View style={styles.buttonWrapper}>
+                    <Button title="Counter Minus" onPress={decrease} />
+                </View>
+            </View>
+        </View>
   )
 }
 
@@ -47,5 +54,15 @@ const styles = StyleSheet.create({
     counterText: {
         fontSize: 24,
         marginBottom: 20,
-    }
+    },
+    buttonContainer: {
+        width: '60%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    buttonWrapper: {
+        width: '100%',
+        marginVertical: 5,
+    },
 });
